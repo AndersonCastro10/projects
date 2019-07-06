@@ -14,10 +14,11 @@ namespace SistemOrder.Entities
         {
         }
 
-        public OrderItem(global::System.Int32 quantity, global::System.Double price)
+        public OrderItem(int quantity, double price, Product product)
         {
             Quantity = quantity;
             Price = price;
+            Product = product;
         }
 
         public double SubTotal()
