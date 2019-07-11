@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace SistemOrder.Entities
 {
@@ -17,6 +18,19 @@ namespace SistemOrder.Entities
             Name = name;
             Email = email;
             BirthDate = birthDate;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(Name);
+            sb.Append(" ");
+            sb.Append(BirthDate.ToString("dd/MM/yyyy"));
+            sb.Append(" - ");
+            sb.AppendLine(Email);
+
+            return sb.ToString();
         }
     }
 }

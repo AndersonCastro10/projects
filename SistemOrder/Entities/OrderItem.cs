@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 
 namespace SistemOrder.Entities
 {
@@ -24,6 +25,18 @@ namespace SistemOrder.Entities
         public double SubTotal()
         {
             return Quantity * Price;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Product.ToString());
+            sb.Append("Quantity: ");
+            sb.Append(Quantity);
+            sb.Append(", Subtotal: ");
+            sb.Append(SubTotal().ToString("F2",CultureInfo.InvariantCulture)) ;
+
+            return sb.ToString();
         }
     }
 }

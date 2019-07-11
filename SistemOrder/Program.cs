@@ -27,19 +27,23 @@ namespace SistemOrder
 
             for (int i = 0; i < n; i++)
             {
-                Console.WriteLine($"Enter #{i} item data:");
+                Console.WriteLine($"Enter #{i+1} item data:");
                 Console.Write("Product name: ");
                 string productName = Console.ReadLine();
                 Console.Write("Product price: ");
                 double productPrice = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                Console.WriteLine("Quantity: ");
+                Console.Write("Quantity: ");
                 int quantity = int.Parse(Console.ReadLine());
 
                 Product product = new Product(productName, productPrice);
                 OrderItem item = new OrderItem(quantity, productPrice, product);
                 order.AddItem(item);
             }
+
             Console.WriteLine();
+            Console.WriteLine(order.ToString());
+
+            Console.ReadLine();
 
         }
     }

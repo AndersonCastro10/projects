@@ -1,6 +1,8 @@
 ﻿using System;
 using SistemOrder.Entities.Enums;
 using System.Collections.Generic;
+using System.Text;
+using System.Globalization;
 
 namespace SistemOrder.Entities
 {
@@ -42,6 +44,28 @@ namespace SistemOrder.Entities
             }
 
             return sum;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("ORDER SUMARY :");
+            sb.Append("Order Moment: ");
+            sb.AppendLine(Moment.ToString("dd/MM/yyyy HH:mm:ss"));
+            sb.Append("Order Status: ");
+            sb.AppendLine(Status.ToString());
+            sb.Append("Client: ");
+            sb.Append(Client.ToString());
+            sb.AppendLine("Order items:");
+            foreach (OrderItem item in Items)
+            {
+                sb.AppendLine(item.ToString());
+            }
+            sb.Append("Total Price: ");
+            sb.AppendLine(Total().ToString("F2", CultureInfo.InvariantCulture));
+
+            return sb.ToString();
         }
     }
 }
